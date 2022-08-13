@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/src/db_core/**",
+                "${workspaceFolder}/src/db_core/BTreeIndex/**",
+                "${workspaceFolder}/src/db_core/FixedDB/**",
+                "${workspaceFolder}/src/db_core/IO/**",
+                "${workspaceFolder}/src/db_core/FixedTable/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-clang-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}
