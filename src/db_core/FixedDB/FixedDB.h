@@ -5,6 +5,9 @@ struct FixedDB {
     FixedAppendDB data;
     FixedAppendDB deletes;
 
+    
+
+
     FixedDB(IO dataIO, IO deletesIO) : data(dataIO), deletes(deletesIO) {}
     FixedDB(const FixedDB&) = default;
     FixedDB& operator=(const FixedDB&) = default;

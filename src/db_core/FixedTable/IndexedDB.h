@@ -1,26 +1,14 @@
 #pragma once
 #include <BPlusTreeIndexN.h>
-#include <FixedDB/FixedDB.h>
+#include <FixedDB.h>
+#include <IO.h>
+#include <stdint.h>
 
 #include <vector>
+#include "Row.h"
 
-
-
-
-struct KeyExtractor{
-    size_t pos;
-
-    Key extract(char* content){
-        return IntKey(content+pos);
-    }
-
-};
-
-
-struct TableDB {
+struct IndexedDB {
     std::vector<BPlusTreeIndexN> index;
-
-    std::vector<
     FixedDB db;
 
     bool insert(const char* content, std::vector<Key> indexKeys) {
@@ -59,9 +47,9 @@ struct TableDB {
             db.update(content, pos);
 
             for (size_t i = 0; i < index.size(); i++) {
-                if(indexKeys[i].first != indexKeys[i].second){
+                if (indexKeys[i].first != indexKeys[i].second) {
                     index[i].remove(indexKeys[i].first);
-                    index[i].add(pos, indexKeys[i],second);
+                    index[i].add(pos, indexKeys[i], second);
                 }
             }
 
@@ -71,3 +59,6 @@ struct TableDB {
         return true;
     }
 };
+
+
+
